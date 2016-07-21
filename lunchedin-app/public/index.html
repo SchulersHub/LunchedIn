@@ -1,0 +1,45 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+  <title> LunchedIn - Coordinate Your Orders </title>
+</head>
+<body>
+    <div class="container" ng-controller="AppCtrl">
+      <h1>LunchedIn - Coordinate Your Order!</h1>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Order</th>
+            <th>Payment</th>
+            <th>Action</th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input class="form-control" ng-model='order.name'></td>
+            <td><input class="form-control" ng-model='order.order'></td>
+            <td><input class="form-control" ng-model='order.payment'></td>
+            <td><button class="btn btn-primary" ng-click="addOrder()">Add Order</td>
+            <td><button class="btn btn-info" ng-click="update()">Update Order</button>
+          </tr>
+          <tr ng-repeat="order in orders">
+            <td>{{order.name}}</td>
+            <td>{{order.order}}</td>
+            <td>{{order.payment}}</td>
+            <td><button class="btn btn-danger" ng-click="remove(order._id)">Delete</button></td>
+            <td><button class="btn btn-warning" ng-click="edit(order._id)">Change Order</button></td>
+        </tbody>
+      </table>
+    </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
+  <script src="controllers/controller.js"></script>
+</body>
+</html>
